@@ -22,7 +22,7 @@ const DivButton = defineComponent({
   render() {
     return (
       <div
-        class={["cursor-pointer", { "opacity-50": this.disabled }]}
+        class={[this.disabled ? "opacity-75": "cursor-pointer"]}
         role="button"
         tabindex="0"
         aria-disabled={this.disabled}
