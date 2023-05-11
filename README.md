@@ -2,7 +2,7 @@
 
 Vite-Vue is a scaffold project for quickly setting up a Vue 3 application with Vite, providing an integrated solution for using Pinia, Vue Router, Tailwind CSS, and other essential libraries.
 
-https://chipper-puffpuff-3135be.netlify.app/
+https://famous-sundae-c5aa5b.netlify.app/
 
 ## Features
 
@@ -13,8 +13,10 @@ https://chipper-puffpuff-3135be.netlify.app/
 - Type checking with TypeScript throughout development and build processes
 - Essential libraries included:
   - Collection of Vue composition utilities with `VueUse`
-  - SVG support with `vite-svg-loader`
-  - JSX syntax support with `@vitejs/plugin-vue-jsx`
+  - SVGO support
+  - JSX syntax support
+  - Auto-generated pages routes with layouts and sitemap
+  - Auto-imported components, stores, composables and utils
 - Testing setup with Playwright and Vitest
 - Code quality tools: ESLint, Prettier, Husky, [Lint Staged\*](#note-about-lint-staged), and Commitlint
 
@@ -104,8 +106,10 @@ npm run lf
 
 ### Note about lint-staged
 
-To prevent future conflicts with linted files, the `npx lint-staged` command has been removed from the `pre-commit` hook. Instead, the `npm run lf` command is now used to process all files.
+To prevent future conflicts with linted files, the `npx lint-staged` command does not have file based linting and formatting.
 
-`lint-staged` is still in the dependencies list for other operations like testing only the staged files with `vitest related`.
+Instead, the `npm run lf` command is now used to process all files.
+
+`lint-staged` is for testing only the staged files with `vitest related` for now.
 
 This change was made because sorting class names in files can lead to conflicts, even if no modifications were made to other files by the contributors.
