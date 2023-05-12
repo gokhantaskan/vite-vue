@@ -1,3 +1,9 @@
+<script setup lang="ts">
+useHead({
+  title: "About",
+});
+</script>
+
 <template>
   <main>
     <h1 class="text-3xl font-bold">About</h1>

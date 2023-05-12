@@ -1,11 +1,9 @@
-import { defineComponent } from "vue";
-
-type ClickHandler = (event: MouseEvent | KeyboardEvent) => void;
+type ClickHandler = (event?: MouseEvent | KeyboardEvent) => any;
 
 const DivButton = defineComponent({
   props: {
     press: {
-      type: Function as unknown as () => ClickHandler,
+      type: Function as unknown as ClickHandler,
       required: true,
     },
     disabled: {
@@ -22,7 +20,7 @@ const DivButton = defineComponent({
   render() {
     return (
       <div
-        class={[this.disabled ? "opacity-75": "cursor-pointer"]}
+        class={[this.disabled ? "opacity-75" : "cursor-pointer"]}
         role="button"
         tabindex="0"
         aria-disabled={this.disabled}

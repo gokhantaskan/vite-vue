@@ -11,7 +11,7 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:tailwindcss/recommended",
     "@vue/eslint-config-typescript",
-    "@vue/eslint-config-prettier/skip-formatting",
+    "@vue/eslint-config-prettier",
   ],
   plugins: ["simple-import-sort", "import"],
   parserOptions: {

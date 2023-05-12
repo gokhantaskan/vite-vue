@@ -31,7 +31,7 @@ export default defineConfig(({ mode }) => {
         },
       }),
       AutoImport({
-        imports: ["vue", "pinia", "vue-router"],
+        imports: ["vue", "pinia", "vue-router", "@vueuse/head"],
         dirs: ["src/composables", "src/utils", "src/helpers", "src/stores"],
         dts: "./types/auto-imports.d.ts",
         eslintrc: {
@@ -44,7 +44,6 @@ export default defineConfig(({ mode }) => {
         dts: "./types/components.d.ts",
       }),
       Pages({
-        onRoutesGenerated: routes => generateSitemap({ routes }),
         exclude: ["**/components/**"],
       }),
       Layouts(),
@@ -65,6 +64,16 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: DEV_PORT,
+    },
+    ssgOptions: {
+      script: "async",
+      formatting: "minify",
+      crittersOptions: {
+        reduceInlineStyles: false,
+      },
+      onFinished() {
+        generateSitemap({});
+      },
     },
     test: {
       environment: "jsdom",

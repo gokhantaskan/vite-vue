@@ -15,10 +15,10 @@ const routes = generatedRotues.filter(route => !/^\/:all\(\.\*\)\*$/.test(route.
         to="/"
       >
         <DivButton
-          class="test-class"
-          :press="() => navigate()"
+          class="text-primary-500 dark:text-primary-300"
+          :press="navigate"
         >
-          <Logo class="h-8" />
+          <Logo class="h-6" />
           <span class="sr-only">{{ $appName }}</span>
         </DivButton>
       </router-link>

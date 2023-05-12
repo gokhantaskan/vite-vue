@@ -15,6 +15,7 @@ https://famous-sundae-c5aa5b.netlify.app/
   - Collection of Vue composition utilities with `VueUse`
   - SVGO support
   - JSX syntax support
+  - SSG support for production builds
   - Auto-generated pages routes with layouts and sitemap
   - Auto-imported components, stores, composables and utils
 - Testing setup with Playwright and Vitest

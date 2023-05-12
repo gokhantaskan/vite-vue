@@ -1,22 +1,34 @@
 import "./assets/styles/main.scss";
 
-import { createPinia } from "pinia";
-import { createApp } from "vue";
+import { setupLayouts } from "virtual:generated-layouts";
+import generatedRoutes from "virtual:generated-pages";
+import type { ViteSSGContext } from "vite-ssg";
+import { ViteSSG } from "vite-ssg";
 
 import { version } from "../package.json";
 import Root from "./Root.vue";
-import router from "./router";
 
-const app = createApp(Root);
+type Module = { install: (args: ViteSSGContext<true>) => void };
 
-app.use(createPinia());
-app.use(router);
+export const createApp = ViteSSG(
+  Root,
+  { routes: setupLayouts(generatedRoutes), base: import.meta.env.BASE_URL },
+  ctx => {
+    const globalProperties = ctx.app.config.globalProperties;
+    const modules = import.meta.glob<Module>("./modules/*.ts", {
+      eager: true,
+    });
 
-app.config.globalProperties.$img = useAssetImage;
-app.config.globalProperties.$appName = import.meta.env.VITE_APP_NAME;
-app.config.globalProperties.$appVersion = version;
+    for (const path in modules) {
+      const module = modules[path];
+      module.install?.(ctx);
+    }
 
-app.mount("#app");
+    globalProperties.$img = useAssetImage;
+    globalProperties.$appVersion = version;
+    globalProperties.$appName = import.meta.env.VITE_APP_TITLE;
+  }
+);
 
 function useAssetImage(url: string) {
   return new URL(`/src/assets/img/${url}`, import.meta.url).href;
