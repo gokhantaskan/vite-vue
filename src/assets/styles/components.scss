@@ -1,0 +1,5 @@
+.navbar {
+  .router-link-exact-active {
+    @apply text-primary-500;
+  }
+}
