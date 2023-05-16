@@ -11,8 +11,9 @@ describe("DivButton", () => {
   });
 
   it("renders properly", () => {
+    const press = vi.fn();
     const wrapper = mount(DivButton, {
-      props: { press: () => ({}) },
+      props: { press },
       slots: { default: "Hello Vitest" },
     });
     expect(wrapper.text()).toContain("Hello Vitest");
