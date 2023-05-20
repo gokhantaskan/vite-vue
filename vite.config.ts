@@ -22,7 +22,12 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
-      vue(),
+      vue({
+        script: {
+          defineModel: true,
+          propsDestructure: true,
+        },
+      }),
       vueJsx(), // More examples: https://github.com/vitejs/vite-plugin-vue/tree/main/playground/vue-jsx
       svgLoader({
         svgoConfig: {
