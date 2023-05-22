@@ -1,4 +1,5 @@
 /* eslint-env node */
 module.exports = {
-  "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": ["vitest related --run"],
+  "*": ["prettier --write -l -u --no-error-on-unmatched-pattern"],
+  "*.{js,cjs,mjs,ts,tsx,vue}": ["eslint --fix", "vitest related --run"],
 };

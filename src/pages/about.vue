@@ -6,7 +6,7 @@ useHead({
 
 <template>
   <main>
-    <h1 class="text-3xl font-bold">About</h1>
+    <h1 class="aa text-3xl font-bold">About</h1>
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus corrupti nisi nemo qui,
       sed deserunt delectus? Quaerat officiis recusandae expedita soluta, facilis ut exercitationem.
