@@ -1,5 +1,6 @@
 import "./assets/styles/main.scss";
 
+import devalue from "@nuxt/devalue";
 import { setupLayouts } from "virtual:generated-layouts";
 import generatedRoutes from "virtual:generated-pages";
 import type { ViteSSGContext } from "vite-ssg";
@@ -27,6 +28,11 @@ export const createApp = ViteSSG(
     globalProperties.$img = useAssetImage;
     globalProperties.$appVersion = version;
     globalProperties.$appName = import.meta.env.VITE_APP_TITLE;
+  },
+  {
+    transformState(state) {
+      return import.meta.env.SSR ? devalue(state) : state;
+    },
   }
 );
 
