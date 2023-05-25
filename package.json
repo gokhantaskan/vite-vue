@@ -15,7 +15,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint \"**/*.{js,cjs,mjs,ts,tsx,vue}\" --fix --ignore-path .gitignore",
     "format": "prettier --write . -l -u --no-error-on-unmatched-pattern",
-    "lf": "npm run format && npm run lint",
+    "lf": "run-p lint format",
     "prepare": "husky install",
     "vitest": "vitest --coverage.enabled"
   },

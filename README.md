@@ -18,7 +18,8 @@ https://famous-sundae-c5aa5b.netlify.app/
 - Auto-imported layouts
 - Auto-imported components, stores, composables and utils
 - Testing setup with Playwright and Vitest
-- Code quality tools: ESLint, Prettier, Husky, [Lint Staged\*](#note-about-lint-staged), and Commitlint
+- Code quality tools: ESLint, Prettier, Husky, Lint Staged, and Commitlint
+  - Type checking and running related tests before commit
 
 ## Recommended IDE Setup
 
@@ -103,13 +104,3 @@ npm run lint
 ```sh
 npm run lf
 ```
-
-### Note about lint-staged
-
-To prevent future conflicts with linted files, the `npx lint-staged` command does not have file based linting and formatting.
-
-Instead, the `npm run lf` command is now used to process all files.
-
-`lint-staged` is for testing only the staged files with `vitest related` for now.
-
-This change was made because sorting class names in files can lead to conflicts, even if no modifications were made to other files by the contributors.
