@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       #
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       #
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
       #
       - name: Cache node modules
         id: cache-npm
@@ -36,29 +36,37 @@ jobs:
         name: List the state of node modules
         continue-on-error: true
         run: npm list
-      #
+      # Clean Install
       - name: Install dependencies
         run: npm ci
-      #
+      # Typescript checks
       - name: Type check
         run: npm run type-check
-      #
+      # Format and lint
       - name: Format and lint
         run: npm run lf
-      #
+      # Run unit tests
       - name: Run unit tests
         run: npm run test:unit
-      #
+      # Build for production (required for e2e test)
+      - name: Build for production
+        run: npm run build
+      # Install playwright
       - name: Install Playwright
         run: npx playwright install --with-deps
-      #
+      # Install playwright msedge (required for e2e test)
+      - name: Install Playwright MS Edge
+        run: npx playwright install msedge
+      # Run e2e tests
       - name: Run e2e tests
         uses: coactions/setup-xvfb@v1
         with:
           run: npm run test:e2e
-      - uses: actions/upload-artifact@v3
+      # Upload test report
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: playwright-report
           path: playwright-report/
-          retention-days: 30
+          retention-days: 1
