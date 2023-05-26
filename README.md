@@ -1,5 +1,7 @@
 # Vite-Vue
 
+[![CI](https://github.com/gokhantaskan/vite-vue/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/gokhantaskan/vite-vue/actions/workflows/ci.yml)
+
 Vite-Vue is a scaffold project for quickly setting up a Vue 3 application with Vite, providing an integrated solution for using Pinia, Vue Router, Tailwind CSS, and other essential libraries.
 
 https://famous-sundae-c5aa5b.netlify.app/
