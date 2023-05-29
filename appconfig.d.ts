@@ -1,4 +1,4 @@
-type Colors = { [key: string]: Colors | string } | string;
+type Colors = string | { [key: string]: Colors };
 
 declare module "appconfig" {
   const colors = {

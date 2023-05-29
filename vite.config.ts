@@ -45,8 +45,12 @@ export default defineConfig(({ mode }) => {
       }),
       Components({
         extensions: ["vue", "tsx", "md"],
-        deep: true,
         dts: "./types/components.d.ts",
+        globalNamespaces: ["shared"],
+        directoryAsNamespace: true,
+        collapseSamePrefixes: true,
+        deep: true,
+        types: [],
       }),
       Pages({
         exclude: ["**/components/**"],

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --open",
+    "dev:force": "run-s clear \"dev -- --force\"",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "test:unit": "npm run vitest -- --run",
@@ -17,7 +18,8 @@
     "format": "prettier --write . -l -u --no-error-on-unmatched-pattern",
     "lf": "run-p lint format",
     "prepare": "husky install",
-    "vitest": "vitest --coverage.enabled"
+    "vitest": "vitest --coverage.enabled",
+    "clear": "rimraf dist .vite-ssg-temp .eslintrc-auto-import.json types/auto-imports.d.ts types/components.d.ts"
   },
   "dependencies": {
     "@vueuse/core": "^10.1.2",
@@ -28,6 +30,7 @@
     "vue-router": "^4.2.1"
   },
   "devDependencies": {
+    "@babel/parser": "^7.22.4",
     "@commitlint/cli": "^17.6.3",
     "@commitlint/config-conventional": "^17.6.3",
     "@nuxt/devalue": "^2.0.2",
@@ -59,6 +62,7 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.23",
     "prettier": "2.8.8",
+    "rimraf": "^5.0.1",
     "sass": "^1.62.1",
     "tailwindcss": "^3.3.2",
     "typescript": "~4.8.4",

@@ -29,8 +29,8 @@ const breakPoints = {
   sm: "600px",
   md: "960px",
   lg: "1280px",
-  // xl: "1920px",
-  // "2xl": "2560px",
+  xl: "1920px",
+  "2xl": "2560px",
 };
 
 /** @type {import('appconfig').AppConfig} */

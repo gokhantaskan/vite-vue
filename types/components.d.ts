@@ -9,10 +9,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    DivButton: typeof import('./../src/components/DivButton/DivButton.tsx')['default']
-    Footer: typeof import('./../src/components/Footer/Footer.vue')['default']
-    Navbar: typeof import('./../src/components/Navbar/Navbar.vue')['default']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
+    DivButton: typeof import('./../src/components/shared/DivButton/DivButton.tsx')['default']
+    Footer: typeof import('./../src/components/shared/Footer/Footer.vue')['default']
+    Navbar: typeof import('./../src/components/shared/Navbar/Navbar.vue')['default']
   }
 }
