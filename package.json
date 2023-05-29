@@ -19,7 +19,7 @@
     "lf": "run-p lint format",
     "prepare": "husky install",
     "vitest": "vitest --coverage.enabled",
-    "clear": "rimraf dist .vite-ssg-temp .eslintrc-auto-import.json types/auto-imports.d.ts types/components.d.ts"
+    "clear": "rimraf dist .vite-ssg-temp .eslintrc-auto-import.json types/auto-imports.d.ts types/components.d.ts test-results playwright-report"
   },
   "dependencies": {
     "@vueuse/core": "^10.1.2",
