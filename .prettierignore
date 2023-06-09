@@ -1,7 +1,5 @@
 # Autoimport files
-**/auto-imports.d.ts
-**/components.d.ts
-**/.eslintrc-auto-import.json
+/types
 
 # The rest is the same as .gitignore
 test-results/

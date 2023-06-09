@@ -4,7 +4,7 @@ require("@rushstack/eslint-patch/modern-module-resolution");
 module.exports = {
   root: true,
   extends: [
-    "./.eslintrc-auto-import.json",
+    "./types/.eslintrc-auto-import.json",
     "plugin:vue/vue3-recommended",
     "eslint:recommended",
     "plugin:import/recommended",
@@ -36,6 +36,7 @@ module.exports = {
           "virtual:generated-layouts",
           "virtual:generated-pages",
           "~pages",
+          "vue-router/auto/routes",
         ],
       },
     ],

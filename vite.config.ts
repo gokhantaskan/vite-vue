@@ -6,6 +6,8 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import dns from "dns";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
+import { VueRouterAutoImports } from "unplugin-vue-router";
+import VueRouter from "unplugin-vue-router/vite";
 import { defineConfig, loadEnv } from "vite";
 import Pages from "vite-plugin-pages";
 import Layouts from "vite-plugin-vue-layouts";
@@ -22,6 +24,9 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
+      VueRouter({
+        dts: "./types/typed-router.d.ts",
+      }),
       vue({
         script: {
           defineModel: true,
@@ -36,11 +41,20 @@ export default defineConfig(({ mode }) => {
         },
       }),
       AutoImport({
-        imports: ["vue", "pinia", "vue-router", "@vueuse/head"],
+        imports: [
+          "vue",
+          "pinia",
+          "@vueuse/head",
+          VueRouterAutoImports,
+          {
+            "vue-router/auto": ["useLink"],
+          },
+        ],
         dirs: ["src/composables", "src/utils", "src/helpers", "src/stores"],
         dts: "./types/auto-imports.d.ts",
         eslintrc: {
           enabled: true,
+          filepath: "./types/.eslintrc-auto-import.json",
         },
       }),
       Components({
