@@ -9,7 +9,6 @@ import Components from "unplugin-vue-components/vite";
 import { VueRouterAutoImports } from "unplugin-vue-router";
 import VueRouter from "unplugin-vue-router/vite";
 import { defineConfig, loadEnv } from "vite";
-import Pages from "vite-plugin-pages";
 import Layouts from "vite-plugin-vue-layouts";
 import generateSitemap from "vite-ssg-sitemap";
 import svgLoader from "vite-svg-loader"; // https://github.com/jpkleemans/vite-svg-loader
@@ -65,9 +64,6 @@ export default defineConfig(({ mode }) => {
         collapseSamePrefixes: true,
         deep: true,
         types: [],
-      }),
-      Pages({
-        exclude: ["**/components/**"],
       }),
       Layouts(),
     ],
