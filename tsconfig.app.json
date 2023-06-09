@@ -1,12 +1,12 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": [
-    "vitest",
+    "appconfig.d.ts",
     "env.d.ts",
-    "appconfig.mjs",
+    "declarations.d.ts",
+    "vitest",
     "src/**/*",
     "types",
-    "appconfig.d.ts",
     "package.json"
   ],
   "exclude": ["src/**/__tests__/*"],

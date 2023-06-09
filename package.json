@@ -19,7 +19,7 @@
     "lf": "run-p lint format",
     "prepare": "husky install",
     "vitest": "vitest --coverage.enabled",
-    "clear": "rimraf dist .vite-ssg-temp .eslintrc-auto-import.json types/auto-imports.d.ts types/components.d.ts test-results playwright-report"
+    "clear": "rimraf dist .vite-ssg-temp types test-results playwright-report"
   },
   "dependencies": {
     "@vueuse/core": "^10.1.2",
@@ -68,6 +68,7 @@
     "typescript": "~4.8.4",
     "unplugin-auto-import": "^0.15.3",
     "unplugin-vue-components": "^0.24.1",
+    "unplugin-vue-router": "^0.6.4",
     "vite": "^4.3.8",
     "vite-plugin-pages": "^0.29.1",
     "vite-plugin-vue-layouts": "^0.8.0",
