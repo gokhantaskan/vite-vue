@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import generatedRotues from "virtual:generated-pages";
-
 import Logo from "@/assets/img/logo.svg?component";
 
-const routes = generatedRotues.filter(route => !/^\/:all\(\.\*\)\*$/.test(route.path));
+const router = useRouter();
+const navRoutes = router.getRoutes().filter(route => route.path !== "/:all(.*)");
 </script>
 
 <template>
@@ -25,7 +24,7 @@ const routes = generatedRotues.filter(route => !/^\/:all\(\.\*\)\*$/.test(route.
 
       <ul class="flex items-center gap-4">
         <template
-          v-for="(route, i) in routes"
+          v-for="(route, i) in navRoutes"
           :key="i"
         >
           <li>
